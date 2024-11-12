@@ -1,0 +1,38 @@
+<div class="ticket-details-container container mt-5">
+  
+
+  <h1 class="mb-4 card-title">
+    <i  (click)="goBack()" class="fas fa-arrow-left" style="margin-right: 8px;"></i> Ticket Details
+</h1>
+  <div *ngIf="ticket" class="ticket-details">
+      <div class="form-group">
+          <label for="ticketId" class="form-label">Ticket ID</label>
+          <p id="ticketId" class="form-control-plaintext">{{ ticket.id }}</p>
+      </div>
+      <div class="form-group">
+          <label for="ticketDescription" class="form-label">Description</label>
+          <p id="ticketDescription" class="form-control-plaintext">{{ ticket.description }}</p>
+      </div>
+      <div class="form-group">
+          <label for="ticketStatus" class="form-label">Status</label>
+          <p id="ticketStatus" class="form-control-plaintext">{{ ticket.status }}</p>
+      </div>
+      <div class="form-group">
+          <label for="dateCreated" class="form-label">Date Created</label>
+          <p id="dateCreated" class="form-control-plaintext">
+              {{ ticket.dateCreated !== '0001-01-01T00:00:00' ? formatDate(ticket.dateCreated) : 'N/A' }}
+          </p>
+      </div>
+      <div class="form-group" *ngIf="ticket.dateChanged !== '0001-01-01T00:00:00'">
+        <label for="dateChanged" class="form-label">Date Changed</label>
+        <p id="dateChanged" class="form-control-plaintext">
+            {{ formatDate(ticket.dateChanged) }}
+        </p>
+    </div>
+    
+  </div>
+
+  <div *ngIf="!ticket" class="text-center mt-3">
+      <p>Loading...</p>
+  </div>
+</div>

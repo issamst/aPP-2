@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+      <div class="col ">
+        <div class="card">
+          <div class="card-body">
+           
+            <div class="d-flex justify-content-end mb-3">
+              <button class="btn btn-primary btn-save" (click)="addNewTicket()">
+                <i class="bi bi-plus-lg me-1"></i> New Tickets
+              </button>
+            </div>
+           
+            <table class="table  table-sm">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Date Created</th>
+                  <th>Date Changer</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let Ticket of tickets">
+                    <td>{{ Ticket.id }}</td>
+                  <td>{{ Ticket.description }}</td>
+                  <td>{{ Ticket.status }}</td>
+                  <td>{{ Ticket.dateCreated !== '0001-01-01T00:00:00' ? formatDate(Ticket.dateCreated) : ' ' }}</td>
+                  <td>{{ Ticket.dateChanged !== '0001-01-01T00:00:00' ? formatDate(Ticket.dateChanged) : ' ' }}</td>
+                  <td>
+                    <button *ngIf="Ticket.id" class="btn btn-sm  me-1" style="background-color: orange; color: white;" title="Edit" (click)="editTicket(Ticket.id)">
+                      <i class="bi bi-pencil"></i>
+                      Update
+                    </button>
+                    <button *ngIf="Ticket.id" class="btn btn-sm btn-danger me-1" title="Delete" (click)="deleteTicket(Ticket.id)">
+                      <i class="bi bi-trash"></i>
+                      Delete
+                    </button>
+                    <button *ngIf="Ticket.id" class="btn btn-sm btn-info me-1" style=" color: white;" title="View" (click)="showTicket(Ticket.id)">
+                      <i class="bi bi-eye"></i>
+                      View
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        
+      
+      </div>
+    </div>
+  </div>
+  

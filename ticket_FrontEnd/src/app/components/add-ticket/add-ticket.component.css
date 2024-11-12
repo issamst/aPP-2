@@ -1,0 +1,33 @@
+.add-ticket-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .add-ticket-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .add-ticket-form .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .add-ticket-form .form-control {
+    width: 100%;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 15px;
+  }
+  .card-title {
+    font-size: 1.8rem; 
+    color: green; 
+    border-bottom: 2px solid green; 
+    padding-bottom: 0.5rem; 
+}

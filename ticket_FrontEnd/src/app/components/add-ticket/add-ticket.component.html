@@ -1,0 +1,48 @@
+<div class="add-ticket-container container mt-5">
+    <h1 class="mb-4 card-title">  <i  (click)="goBack()" class="fas fa-arrow-left" style="margin-right: 8px;"></i>Add ticket</h1>
+    <form (ngSubmit)="addticket()" #ticketForm="ngForm" class="add-ticket-form needs-validation" novalidate>
+      
+      <div class="form-group">
+        <label for="description" class="form-label">Description</label>
+        <input
+
+        id="description" 
+        [(ngModel)]="ticket.description" 
+        name="description" 
+        required 
+        class="form-control"
+        #description="ngModel"
+        placeholder="Description "
+        [ngClass]="{'is-invalid': description.invalid && (description.dirty || description.touched)}"
+      >
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="invalid-feedback">
+            description is required.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="status" class="form-label">Status</label>
+        <select 
+            id="status" 
+            [(ngModel)]="ticket.status" 
+            name="status" 
+            required 
+            class="form-control"
+            #status="ngModel"
+            [ngClass]="{'is-invalid': status.invalid && (status.dirty || status.touched)}"
+            style=" border: 4px solid #ecf0f4;">
+            <option value="" disabled>Select Status</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+        </select>
+        <div *ngIf="status.invalid && (status.dirty || status.touched)" class="invalid-feedback">
+            Status is required.
+        </div>
+    </div>
+
+      <div class="d-flex justify-content-between mt-3">
+        <button type="submit" class="btn btn-primary" [disabled]="ticketForm.invalid" style="background-color: green; color: white; font-weight: 500; width: 100%;">Add ticket</button>
+      </div>
+    </form>
+  </div>
+  
